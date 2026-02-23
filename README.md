@@ -37,16 +37,18 @@
 - Функция `employee_performance_report(p_from, p_to)` — отчёт по производительности сотрудников за период
 
 ## Структура репозитория
+
+```text
 docs/
-Управление заведениями общественного питания.docx
+  Управление заведениями общественного питания.docx
 sql/
-00_schema.sql
-01_seed.sql
-02_roles.sql
-03_rls.sql
-04_logic.sql
-05_indexes.sql
-06_extra.sql
+  00_schema.sql
+  01_seed.sql
+  02_roles.sql
+  03_rls.sql
+  04_logic.sql
+  05_indexes.sql
+  06_extra.sql
 
 ## Установка и запуск
 
@@ -64,3 +66,16 @@ psql -d food_chain -f sql/03_rls.sql
 psql -d food_chain -f sql/04_logic.sql
 psql -d food_chain -f sql/05_indexes.sql
 psql -d food_chain -f sql/06_extra.sql
+
+### Запуск и проверка
+После выполнения скриптов можно проверить работу ключевой логики следующими запросами.
+
+**1) Подбор альтернатив бронирования**
+```sql
+SELECT *
+FROM food_chain.suggest_booking_alternatives(
+  p_restaurant_id => 1,
+  p_desired_time  => now(),
+  p_guests        => 4,
+  p_max_orders    => 5
+);
