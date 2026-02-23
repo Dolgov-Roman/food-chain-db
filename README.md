@@ -49,7 +49,7 @@ sql/
   04_logic.sql
   05_indexes.sql
   06_extra.sql
-
+```
 ## Установка и запуск
 
 ### Требования
