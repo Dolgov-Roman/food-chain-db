@@ -66,6 +66,7 @@ psql -d food_chain -f sql/03_rls.sql
 psql -d food_chain -f sql/04_logic.sql
 psql -d food_chain -f sql/05_indexes.sql
 psql -d food_chain -f sql/06_extra.sql
+```
 
 ### Запуск и проверка
 После выполнения скриптов можно проверить работу ключевой логики следующими запросами.
@@ -79,3 +80,4 @@ FROM food_chain.suggest_booking_alternatives(
   p_guests        => 4,
   p_max_orders    => 5
 );
+```
